@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\API\Controllers;
 
 use App\API\Request\CreateDirectionRequest;
 use App\API\Request\UpdateDirectionRequest;
-use App\Domain\Actions\CreateDirection;
-use App\Domain\Actions\DeleteDirection;
-use App\Domain\Actions\GetDirections;
+use App\Domain\Actions\Diretions\CreateDirection;
+use App\Domain\Actions\Diretions\DeleteDirection;
+use App\Domain\Actions\Diretions\GetDirections;
+use App\Domain\Actions\Diretions\UpdateDirections as DiretionsUpdateDirections;
 use App\Domain\Actions\UpdateDirections;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class DirectionController extends Controller
@@ -25,7 +27,7 @@ class DirectionController extends Controller
         return response()->json($direction,201);
     }
 
-    public function update(UpdateDirectionRequest $request , UpdateDirections  $updateDirections , $id)
+    public function update(UpdateDirectionRequest $request , DiretionsUpdateDirections  $updateDirections , $id)
     {
         $direction = $updateDirections->handle($request , $id);
         return response()->json($direction,201);

@@ -1,7 +1,8 @@
 <?php
 
 
-namespace App\Domain\Actions;
+namespace App\Domain\Actions\Diretions;
+
 
 use App\API\Request\UpdateDirectionRequest;
 use App\API\Resources\DirectionsResource;
