@@ -15,10 +15,7 @@ class UpdateDirections{
     {
         $direction = Direction::findOrFail($id);
 
-        $direction->update([
-            'name' => $request->name,
-            'description' => $request->is_active,
-        ]);
+        $direction->update($request->validated());
 
         return new DirectionsResource($direction);
 

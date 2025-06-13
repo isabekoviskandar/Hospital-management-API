@@ -17,20 +17,17 @@ class DirectionController extends Controller
 
     public function index(GetDirections $getDirections)
     {
-        $directions = $getDirections->handle();
-        return response()->json($directions);
+        return $getDirections->handle();
     }
 
     public function create(CreateDirectionRequest $request , CreateDirection $createDirection)
     {
-        $direction = $createDirection->handle($request);
-        return response()->json($direction,201);
+        return $createDirection->handle($request);
     }
 
     public function update(UpdateDirectionRequest $request , DiretionsUpdateDirections  $updateDirections , $id)
     {
-        $direction = $updateDirections->handle($request , $id);
-        return response()->json($direction,201);
+        return $updateDirections->handle($request , $id);
     }
 
     public function destroy(DeleteDirection $deleteDirection, $id)

@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('direction_id')->constrained('directions')->onDelete('cascade');
+            $table->string('name');
+            $table->integer('status');
+            $table->integer('price');
             $table->timestamps();
         });
     }

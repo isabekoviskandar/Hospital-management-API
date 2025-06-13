@@ -10,10 +10,7 @@ class CreateDirection
 {
     public function handle(CreateDirectionRequest $request)
     {
-        $direction =  Direction::create([
-            'name' => $request->name,
-            'is_active' => $request->is_active,
-        ]);
+        $direction =  Direction::create($request->validated());
 
         return new DirectionsResource($direction);
     }
